@@ -14,11 +14,11 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     padding: 40px 0;
-    gap: 40px 30px;
+    gap: 40px 20px;
   }
 }
 
-@media (min-width: 320px)  and (max-width: 510px) {
+@media (min-width: 320px)  and (max-width: 580px) {
   .main {
     & h2 {
 
@@ -27,12 +27,12 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 10px;
+      padding: 15px;
     }
   }
 }
 
-@media (min-width: 510px)  and (max-width: 690px) {
+@media (min-width: 581px)  and (max-width: 750px) {
   .main {
     & h2 {
 
@@ -46,12 +46,13 @@
   }
 }
 
-@media (min-width: 690px)  and (max-width: 930px) {
+@media (min-width: 751px)  and (max-width: 1024px) {
   .main {
     & h2 {
 
     }
     & .cards {
+      justify-content: center;
       gap: 10px;
     }
   }

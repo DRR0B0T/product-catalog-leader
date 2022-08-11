@@ -1,8 +1,8 @@
 @import '../variables';
 
 .card {
-  width: 270px;
-  height: 380px;
+  max-width: 270px;
+  max-height: 380px;
   padding: 10px 35px 35px 35px;
   display: flex;
   flex-direction: column;
@@ -50,7 +50,7 @@
   }
 }
 
-@media (min-width: 510px) and (max-width: 690px) {
+@media (min-width: 581px) and (max-width: 750px) {
   .card {
     width: 452px;
     & img {
