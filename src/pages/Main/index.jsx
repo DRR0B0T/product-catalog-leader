@@ -1,12 +1,10 @@
-import React from 'react';
-import {Card} from "../../components/Card";
+import React from "react";
+import { Card } from "../../components/Card";
 
 export const Main = () => {
   return (
-    <div className='main'>
-      <h2>
-        Каталог товаров
-      </h2>
+    <div className="main">
+      <h2>Каталог товаров</h2>
       <div className="cards">
         <Card />
         <Card />
@@ -23,4 +21,3 @@ export const Main = () => {
     </div>
   );
 };
-
