@@ -1,0 +1,19 @@
+@import "../variables";
+
+.button {
+  width: 186px;
+  height: 40px;
+  background: $secondary;
+  color: $white;
+  border: none;
+  cursor: pointer;
+  &:active {
+   background: $primary;
+  }
+}
+
+@media (min-width: 751px) {
+  .button {
+    display: none;
+  }
+}

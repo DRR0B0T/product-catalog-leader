@@ -1,12 +1,11 @@
-import React from 'react';
+import React from "react";
 
 export const Button = () => {
-    const [addToCart, setAddToCart] = React.useState('Добавить в корзину')
+  let flag = false;
 
-    return (
-        <button className='button'>
-            {addToCart}
-        </button>
-    );
+  return (
+    <button className="button">
+      {flag ? "В корзине" : "Добавить в корзину"}
+    </button>
+  );
 };
-

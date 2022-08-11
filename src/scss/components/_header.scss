@@ -1,4 +1,4 @@
-@import '../variables';
+@import "../variables";
 
 .header {
   display: flex;
@@ -6,12 +6,8 @@
   padding: 5px 15px 5px 10px;
   .title {
     display: flex;
-    width: 180px;
-    & h2 {
-      font-family: 'Open Sans', sans-serif;
-      font-weight: 500;
-    }
-    .logo{
+
+    .logo {
       width: 34px;
       height: 34px;
     }
@@ -19,19 +15,18 @@
 
   .cart {
     position: relative;
-    width: 142px;
-    height: 24px;
+
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-    gap: 7.16px;
+    gap: 7px;
     &-img {
     }
     & h3 {
-      color: #35383A;
+      color: #35383a;
     }
     & .purchase {
-      position:relative;
+      position: relative;
       right: 0;
       width: 20px;
       height: 20px;
@@ -50,20 +45,21 @@
   }
 }
 
-@media (min-width: 320px) and (max-width: 580px) {
+@media (min-width: 320px) and (max-width: 689px) {
   .header {
+    display: flex;
+    align-items: center;
 
     .title {
-      width: 150px;
-      & h2 {
-        font-size: 24px;
+      & svg {
+        width: 70%;
       }
-      .logo{
-        width: 28px;
-        height: 25px;
+      .logo {
+        width: 2rem;
+        height: 2rem;
       }
     }
-    .cart{
+    .cart {
       & h3 {
         display: none;
       }
@@ -71,22 +67,14 @@
   }
 }
 
-@media (min-width: 581px) and (max-width: 750px) {
+@media (min-width: 751px) and (max-width: 1200px) {
   .header {
-
     .title {
-      width: 180px;
-      & h2 {
-        font-size: 24px;
-      }
-      .logo{
-        width: 34px;
-        height: 34px;
+      .logo {
       }
     }
-    .cart{
+    .cart {
       & h3 {
-        display: none;
       }
     }
   }
