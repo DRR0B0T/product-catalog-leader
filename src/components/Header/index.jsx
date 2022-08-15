@@ -1,8 +1,11 @@
 import React from "react";
 import logo from "../../assets/img/logo.png";
 import { Link } from "react-router-dom";
+import { AppContext } from "../../App";
 
 export const Header = () => {
+  const { total, cartProducts } = React.useContext(AppContext);
+  const { counter } = total;
   return (
     <div className="header">
       <Link to="/">
@@ -63,7 +66,12 @@ export const Header = () => {
         </div>
       </Link>
 
-      <div className="cart">
+      <Link
+        to="/cart"
+        className={
+          cartProducts.length > 0 ? "header__cart" : "header__cart_disable"
+        }
+      >
         <svg
           width="28"
           height="23"
@@ -77,10 +85,12 @@ export const Header = () => {
           />
         </svg>
         <h3>Корзина</h3>
-        <div className="purchase">
-          <span>3</span>
-        </div>
-      </div>
+        {cartProducts.length > 0 && (
+          <div className="purchase">
+            <span>{counter}</span>
+          </div>
+        )}
+      </Link>
     </div>
   );
 };

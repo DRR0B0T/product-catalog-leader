@@ -13,18 +13,42 @@
     }
   }
 
-  .cart {
+  &__cart {
     position: relative;
-
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
     gap: 7px;
-    &-img {
-    }
+
     & h3 {
       color: #35383a;
+      transition: color 0.2s ease-in-out;
     }
+    & svg {
+      path {
+        transition: fill 0.2s ease-in-out;
+      }
+    }
+    &:hover {
+      h3 {color:$primary;}
+     svg {
+
+        path {
+          fill: $primary;
+        }
+      }
+    }
+
+    &_disable{
+      position: relative;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      gap: 7px;
+      pointer-events: none;
+
+    }
+
     & .purchase {
       position: relative;
       right: 0;
@@ -59,7 +83,7 @@
         height: 2rem;
       }
     }
-    .cart {
+    &__cart {
       & h3 {
         display: none;
       }
@@ -73,7 +97,7 @@
       .logo {
       }
     }
-    .cart {
+    &__cart {
       & h3 {
       }
     }

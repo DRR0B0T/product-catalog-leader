@@ -12,6 +12,7 @@
   }
   &.active {
    background: $primary;
+    display: block;
   }
 }
 @media (max-width: 750px) {
@@ -22,5 +23,6 @@
 @media (min-width: 751px) {
   .button {
     display: none;
+    transition: background 0.2s ease-in;
   }
 }
