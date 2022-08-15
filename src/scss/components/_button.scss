@@ -10,8 +10,15 @@
   &:active {
    background: $primary;
   }
+  &.active {
+   background: $primary;
+  }
 }
-
+@media (max-width: 750px) {
+  .button {
+    margin-top: 15px;
+  }
+}
 @media (min-width: 751px) {
   .button {
     display: none;
