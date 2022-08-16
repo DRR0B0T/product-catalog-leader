@@ -45,42 +45,6 @@ function App() {
     fetchData();
   }, []);
 
-  const onAddToCart = async (obj) => {
-    try {
-      const findItem = cartProducts.find(
-        (item) => Number(item.parentId) === Number(obj.id)
-      );
-      if (findItem) {
-        setCartProducts((prev) =>
-          prev.filter((item) => Number(item.parentId) !== Number(obj.id))
-        );
-        await axios.delete(
-          `https://62f8eba8e0564480352f4384.mockapi.io/cart/${findItem.id}`
-        );
-      } else {
-        setCartProducts((prev) => [...prev, obj]);
-        const { data } = await axios.post(
-          "https://62f8eba8e0564480352f4384.mockapi.io/cart",
-          obj
-        );
-        setCartProducts((prev) =>
-          prev.map((item) => {
-            if (item.parentId === data.parentId) {
-              return {
-                ...item,
-                id: data.id,
-              };
-            }
-            return item;
-          })
-        );
-      }
-    } catch (error) {
-      alert("Ошибка добавления товара в корзину!");
-      console.error(error);
-    }
-  };
-
   return (
     <AppContext.Provider
       value={{
@@ -89,7 +53,6 @@ function App() {
         products,
         setProducts,
         loading,
-        onAddToCart,
         total,
       }}
     >

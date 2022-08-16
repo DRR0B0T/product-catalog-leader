@@ -5,7 +5,7 @@ import { AppContext } from "../../App";
 export const Main = () => {
   const { loading, products } = React.useContext(AppContext);
   return (
-    <div className="main">
+    <main className="main">
       <h2>Каталог товаров</h2>
       {loading ? (
         <h2
@@ -25,6 +25,6 @@ export const Main = () => {
           ))}
         </div>
       )}
-    </div>
+    </main>
   );
 };
