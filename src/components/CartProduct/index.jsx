@@ -35,7 +35,14 @@ export const CartProduct = ({ id, image, title, price, inStock, counter }) => {
           </svg>
         </button>
       </div>
-      <hr style={{ marginTop: 30, marginBottom: 30 }} />
+      <hr
+        style={{
+          marginBottom: 30,
+          marginTop: 30,
+          width: "100%",
+          color: "#A8AFBB",
+        }}
+      />
     </>
   );
 };
