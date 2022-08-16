@@ -1,0 +1,64 @@
+@import "../variables";
+
+.form {
+  position: absolute;
+  margin-top: 60px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  background: #F2F5F9;
+  padding: 70px 0;
+  font-family: 'Open Sans', sans-serif;
+  & .error {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    pointer-events: none;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    color:  #E86880;
+    &.none {
+      display: none;
+    }
+    & input {
+      border: 1px solid #E86880;
+    }
+  }
+  & label {
+    font-weight: 700;
+    font-size: 26px;
+  }
+  & input {
+    width: 430px;
+    height: 60px;
+    padding-left: 26px;
+    border: none;
+    font-family: 'Open Sans', sans-serif;
+    &:focus {
+     border: 1px solid #4892EC;
+    }
+    &.error:invalid {
+      border: 1px solid #E86880;
+    }
+  }
+  & button[type=submit] {
+    background: $secondary;
+    color: #fff;
+    width: 430px;
+    height: 60px;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif;
+
+    &:disabled {
+      background: rgba(41, 109, 193, 0.5);
+      color: #fff;
+    }
+  }
+}
