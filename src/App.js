@@ -13,7 +13,22 @@ function App() {
   const [products, setProducts] = React.useState([]);
   const [cartProducts, setCartProducts] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
-  console.log(cartProducts);
+  const [total, setTotal] = React.useState({
+    counter: 0,
+    price: 0,
+  });
+
+  React.useEffect(() => {
+    setTotal({
+      counter: cartProducts.reduce((prev, current) => {
+        return prev + current.counter;
+      }, 0),
+      price: cartProducts.reduce((prev, current) => {
+        return prev + parseFloat(current.totalCount);
+      }, 0),
+    });
+  }, [cartProducts]);
+
   React.useEffect(() => {
     async function fetchData() {
       try {
@@ -66,18 +81,6 @@ function App() {
     }
   };
 
-  const onRemoveFromCart = (id) => {
-    try {
-      axios.delete(`https://62f8eba8e0564480352f4384.mockapi.io/cart/${id}`);
-      setCartProducts((prev) =>
-        prev.filter((item) => Number(item.id) !== Number(id))
-      );
-    } catch (error) {
-      alert("Ошибка удаления товара из корзины!");
-      console.error(error);
-    }
-  };
-
   return (
     <AppContext.Provider
       value={{
@@ -87,7 +90,7 @@ function App() {
         setProducts,
         loading,
         onAddToCart,
-        onRemoveFromCart,
+        total,
       }}
     >
       <div className="App">

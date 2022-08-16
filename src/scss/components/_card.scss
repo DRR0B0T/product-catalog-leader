@@ -10,11 +10,10 @@
   justify-content: space-between;
   border: 1px solid #dedede;
 
-  & img {
-  }
+
+
   & p {
     text-align: center;
-    font-family: "Montserrat", sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
@@ -28,11 +27,9 @@
 @media (min-width: 320px) and (max-width: 580px) {
   .card {
     height: 90%;
-    & img {
-    }
+
     & p {
       text-align: center;
-      font-family: "Montserrat", sans-serif;
       font-style: normal;
       font-weight: 500;
       font-size: 16px;
@@ -50,11 +47,9 @@
   .card {
     width: 50%;
     height: 50%;
-    & img {
-    }
+
     & p {
       text-align: center;
-      font-family: "Montserrat", sans-serif;
       font-style: normal;
       font-weight: 500;
       font-size: 16px;
