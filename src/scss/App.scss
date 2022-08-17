@@ -8,7 +8,9 @@ body {
   font-family: "Montserrat",  sans-serif;
   overflow-y: scroll;
   overflow-x: hidden;
+  position: relative;
 }
+
 
 .container {
   width: $container-width;

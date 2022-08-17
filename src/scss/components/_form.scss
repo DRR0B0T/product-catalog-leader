@@ -1,9 +1,7 @@
 @import "../variables";
 
 .form {
-  position: absolute;
   margin-top: 60px;
-  left: 0;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -29,12 +27,12 @@
     &.none {
       display: none;
     }
-    & input {
+     input {
       border: 1px solid #E86880;
     }
   }
 
-  & input {
+   input {
     width: 430px;
     height: 60px;
     padding-left: 26px;
@@ -75,7 +73,7 @@
     &__label {
       width: 80vw;
     }
-    & input {
+     input {
       width: 70vw;
       &[type=submit] {
         width: 70vw;
@@ -88,7 +86,7 @@
   .form {
     position: static;
     width: 100vw;
-    & input {
+     input {
       &[type=submit] {
       }
     }

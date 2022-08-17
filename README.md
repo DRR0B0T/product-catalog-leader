@@ -2,6 +2,18 @@
 
 # Getting Started with Create React App
 
+**Stack:**
+
+- ReactJS + hooks
+- React Router v6
+- smtpjs
+- React-hook-form
+- Context
+- Mockapi
+- Axios
+- SCSS
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
