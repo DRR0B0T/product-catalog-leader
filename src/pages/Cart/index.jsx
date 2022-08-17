@@ -21,10 +21,10 @@ export const Cart = () => {
       {cartProducts.map((product) => (
         <CartProduct key={product.id} {...product} />
       ))}
-      <div className="total">
-        Сумма <span>{price} ₽</span>
-      </div>
-      <Form />
+        <div className="total">
+            Сумма <span>{price} ₽</span>
+        </div>
+        <Form />
     </main>
   );
 };
