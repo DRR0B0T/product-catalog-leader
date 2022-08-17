@@ -4,20 +4,37 @@ import { useForm } from "react-hook-form";
 export const Form = () => {
   const {
     register,
+    control,
     handleSubmit,
     watch,
-    formState: { errors },
+    formState: { dirtyFields, errors },
   } = useForm({
-    mode: "onBlur",
+    mode: "onChange",
     defaultValues: {
+      name: "",
+      phone: "",
       email: "",
     },
   });
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    const randomNumber = Math.round(Math.random() * 1000);
+    if (data.email) {
+      console.log(
+        `Спасибо ${data.name}, ваш заказ №${randomNumber} оформлен. В ближайшее время мы свяжемся с вами по телефону +7(999)999-99-99 для его подтверждения.`
+      );
+      window.Email.send({
+        SecureToken: "00bff8dd-3836-49bc-8ea4-91f311569ce1",
+        To: data.email,
+        From: "mechasop@gmail.com",
+        Subject: `Тестовое задание, заказ №${randomNumber}`,
+        Body: `Спасибо ${data.name}, ваш заказ №${randomNumber} оформлен. В ближайшее время мы свяжемся с вами по телефону +7(999)999-99-99 для его подтверждения.`,
+      }).then((message) => alert(message));
+    }
+  };
 
   const isValidEmail = (email) =>
     // eslint-disable-next-line no-useless-escape
-    /^(([^<>()[\]\\.,;:\s@]+(\.[^<>()[\]\\.,;:\s@]+)*)|(.+))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
       email
     );
 
@@ -31,12 +48,18 @@ export const Form = () => {
     if (validityChanged) {
       console.log("Fire tracker with", isValid ? "Valid" : "Invalid");
     }
-
     return isValid;
   };
+
+  function validatePhone(phone) {
+    let regex =
+      /^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/;
+    return regex.test(phone);
+  }
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="form">
-      <label>Пожалуйста, представьтесь</label>
+      <label className="form__label">Пожалуйста, представьтесь</label>
       <input
         type="text"
         name="name"
@@ -49,7 +72,7 @@ export const Form = () => {
         placeholder={errors.phone ? "+7(___) ___ - __ - __" : "Телефон"}
         {...register("phone", {
           required: true,
-          validate: "+79999999999",
+          validate: validatePhone,
           minLength: 12,
         })}
       />
@@ -60,6 +83,8 @@ export const Form = () => {
         placeholder="Email"
         {...register("email", {
           required: true,
+          minLength: 2,
+          maxLength: 40,
           validate: handleEmailValidation,
         })}
       />
@@ -77,7 +102,18 @@ export const Form = () => {
         )
       )}
 
-      <button type="submit">Оформить заказ</button>
+      <input
+        disabled={
+          !(
+            control._fields.email._f.ref.value &&
+            control._fields.phone._f.ref.value &&
+            control._fields.name._f.ref.value
+          )
+        }
+        onClick={onSubmit}
+        type="submit"
+        placeholder="Оформить заказ"
+      />
     </form>
   );
 };
